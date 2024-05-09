@@ -87,7 +87,10 @@ def main():
     print_number_of_tries()
     print(STAGE_1)
 
-    player_letter_guess = input("Guess a letter: ")
+    WORD = input("Please enter a word: ").lower()
+    print("_ " * len(WORD))
+
+    player_letter_guess = input("Guess a letter: ").lower()
     print(player_letter_guess)
 
 if __name__ == '__main__':
