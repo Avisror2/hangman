@@ -1,6 +1,17 @@
 """Global attributes
 """
-amount_of_tries = 6
+MAX_TRIES = 6
+
+HANGMAN_ASCII_ART = r""" 
+  _    _
+ | |  | |
+ | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __
+ |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \
+ | |  | | (_| | | | | (_| | | | | | | (_| | | | |
+ |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                      __/ |
+                     |___/
+"""
 
 STAGE_1 = """
 x-------x
@@ -60,15 +71,7 @@ def print_starting_message():
     :rtype: none
     """
     print("Welcome to the game Hangman")
-    print(r""" 
-  _    _
- | |  | |
- | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __
- |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \
- | |  | | (_| | | | | (_| | | | | | | (_| | | | |
- |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                      __/ |
-                     |___/""")
+    print(HANGMAN_ASCII_ART)
 
 def print_number_of_tries():
     """Prints the number of guesses available.
@@ -76,7 +79,7 @@ def print_number_of_tries():
     :return: none
     :rtype: none
     """
-    print("Tries: ", amount_of_tries)
+    print("Tries: ", MAX_TRIES)
 
 
 def main():
@@ -84,6 +87,8 @@ def main():
     print_number_of_tries()
     print(STAGE_1)
 
+    player_letter_guess = input("Guess a letter: ")
+    print(player_letter_guess)
 
 if __name__ == '__main__':
     main()
