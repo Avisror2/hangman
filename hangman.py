@@ -86,6 +86,16 @@ def print_number_of_tries():
     print("Tries: ", MAX_TRIES)
 
 
+def is_valid_input(letter_guessed):
+    """Checks whether the user input is valid. The answer must be a single letter of the english alphabet
+    :param letter_guessed: exponent value
+    :type letter_guessed: string
+    :return: The result whether the input is valid or not.
+    :rtype: bool
+    """
+    return len(letter_guessed) == 1 and letter_guessed.isalpha()
+
+
 def main():
     print_starting_message()
     print_number_of_tries()
@@ -97,15 +107,7 @@ def main():
     player_letter_guess = input("Guess a letter: ").lower()
 
     # Validation check. The input should only contain a single english letter
-    if len(player_letter_guess) == 1 and player_letter_guess.isalpha():
-        print(player_letter_guess)
-    # User input is invalid. Find correct error message
-    elif len(player_letter_guess) > 1 and not player_letter_guess.isalpha():
-        print(ERROR_3_ALL_ERRORS)
-    elif len(player_letter_guess) > 1:
-        print(ERROR_1_TOO_LONG)
-    else:
-        print(ERROR_2_INVALID_CHAR)
+    print(is_valid_input(player_letter_guess))
 
 if __name__ == '__main__':
     main()
