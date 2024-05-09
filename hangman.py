@@ -13,6 +13,10 @@ HANGMAN_ASCII_ART = r"""
                      |___/
 """
 
+ERROR_1_TOO_LONG = "E1"
+ERROR_2_INVALID_CHAR = "E2"
+ERROR_3_ALL_ERRORS = "E3"
+
 STAGE_1 = """
 x-------x
 """
@@ -87,11 +91,21 @@ def main():
     print_number_of_tries()
     print(STAGE_1)
 
-    WORD = input("Please enter a word: ").lower()
-    print("_ " * len(WORD))
+    word = input("Please enter a word: ").lower()
+    print("_ " * len(word))
 
     player_letter_guess = input("Guess a letter: ").lower()
-    print(player_letter_guess)
+
+    # Validation check. The input should only contain a single english letter
+    if len(player_letter_guess) == 1 and player_letter_guess.isalpha():
+        print(player_letter_guess)
+    # User input is invalid. Find correct error message
+    elif len(player_letter_guess) > 1 and not player_letter_guess.isalpha():
+        print(ERROR_3_ALL_ERRORS)
+    elif len(player_letter_guess) > 1:
+        print(ERROR_1_TOO_LONG)
+    else:
+        print(ERROR_2_INVALID_CHAR)
 
 if __name__ == '__main__':
     main()
