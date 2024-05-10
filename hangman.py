@@ -1,7 +1,9 @@
 """Global attributes
 """
+# Maximum number of tries before game loss
 MAX_TRIES = 6
 
+# ASCII art for game header
 HANGMAN_ASCII_ART = r""" 
   _    _
  | |  | |
@@ -17,6 +19,7 @@ ERROR_1_TOO_LONG = "E1"
 ERROR_2_INVALID_CHAR = "E2"
 ERROR_3_ALL_ERRORS = "E3"
 
+# The ASCII art for the different stages of the game
 STAGE_1 = """
 x-------x
 """
@@ -57,7 +60,7 @@ STAGE_6 = r"""
     |       |
     |       0
     |      /|\
-    |      /
+    |      / \
     |
 """
 STAGE_7 = r"""
@@ -68,6 +71,9 @@ STAGE_7 = r"""
     |      / \
     |
 """
+
+# Dictionary of all the stages ASCII art combined
+HANGMAN_PHOTOS = {1: STAGE_1, 2: STAGE_2, 3: STAGE_3, 4: STAGE_4, 5: STAGE_5, 6: STAGE_6, 7: STAGE_7}
 
 
 def print_starting_message():
@@ -153,6 +159,10 @@ def check_win(secret_word, old_letters_guessed):
     :rtype: bool
     """
     return all(char in old_letters_guessed for char in secret_word)
+
+
+def print_hangman(num_of_tries):
+    print(HANGMAN_PHOTOS.get(num_of_tries))
 
 
 def main():
