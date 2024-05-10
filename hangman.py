@@ -123,21 +123,40 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
     print(sorted_old_list[-1])
 
 
+def show_hidden_word(secret_word, old_letters_guessed):
+    """Receives the secret word and current user character guesses via list, and returns an appropriate message
+        containing the current correct user guesses from the secret_word.
+    :param secret_word: the secret word of the game
+    :param old_letters_guessed: list of all the users guesses
+    :type secret_word: string
+    :type old_letters_guessed: list
+    :return: Returns a string containing the current correct guesses of characters of the secret word.
+    :rtype: string
+    """
+    discovered_word = ''
+    for char in secret_word:
+        if char in old_letters_guessed:
+            discovered_word += '{} '.format(char)
+        else:
+            discovered_word += '_ '
+    return discovered_word
+
+
+def check_win(secret_word, old_letters_guessed):
+    """Receives the secret word and current user character guesses via list,
+        and returns True if the user guessed the word.
+    :param secret_word: the secret word of the game
+    :param old_letters_guessed: list of all the users guesses
+    :type secret_word: string
+    :type old_letters_guessed: list
+    :return: Returns True if the user guessed the word correctly.
+    :rtype: bool
+    """
+    return all(char in old_letters_guessed for char in secret_word)
+
+
 def main():
-
-    print_starting_message()
-    print_number_of_tries()
-    print(STAGE_1)
-
-    word = input("Please enter a word: ").lower()
-    print("_ " * len(word))
-
-    old_letters_guessed = []
-
-    player_letter_guess = input("Guess a letter: ").lower()
-
-    # Validation check. The input should only contain a single english letter
-    try_update_letter_guessed(player_letter_guess, old_letters_guessed)
+    print('')
 
 
 if __name__ == '__main__':
