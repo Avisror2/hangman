@@ -51,3 +51,5 @@ Create a new branch (git checkout -b your_feature).
 Make your changes and commit them (git commit -am 'Add some feature').
 Push to the branch (git push origin your_feature).
 Create a new Pull Request.
+
+Enjoy!
