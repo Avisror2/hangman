@@ -125,9 +125,10 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
         return True
     print('X')  # Input isn't valid
     sorted_old_list = sorted(old_letters_guessed)  # Print the sorted guessed letters
-    for char in sorted_old_list[:-1]:
-        print("{} -> ".format(char), end='')
-    print(sorted_old_list[-1])
+    if len(old_letters_guessed) > 0:
+        for char in sorted_old_list[:-1]:
+            print("{} -> ".format(char), end='')
+        print(sorted_old_list[-1])
     return False
 
 
