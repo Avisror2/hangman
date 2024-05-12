@@ -5,8 +5,7 @@ This is a simple Python implementation of the classic word guessing game, Hangma
 ## Features
 
 - **Interactive Text-based Interface:** Play directly from your console.
-- **Multiple Word Categories:** Choose from categories like animals, food, and countries to guess words from.
-- **Adjustable Difficulty Levels:** Change the number of allowed guesses to increase or decrease the difficulty.
+- **Multiple Word Categories:** Choose a file on your system with different words and play! Allowing diverse and fun playability.
 
 ## Prerequisites
 
